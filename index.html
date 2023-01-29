@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="icon">
     <title>addExpenses</title>
+    
+</head>
+
+<body>
 </head>
 
 
@@ -24,17 +29,25 @@
         background: -webkit-linear-gradient(yellow,red);
         margin-top: 10px;
         margin-bottom: 20px;
-        font-size: 60px;
+        font-size: 20px;
+        height:30px
     }
     #input{
         width:130%;
 
         height: 30px;
-        background:-webkit-linear-gradient(blue,red)
+        background:burlywood
+    }
+    #input1{
+        width:130%;
+
+        height: 30px;
+        background:burlywood
     }
     h3,h1{
         margin-top: 0px;
         color: aliceblue;    
+
     }
     #btn{
         border-color: white;
@@ -46,7 +59,32 @@
         align-items: center;
         justify-content:center ;
     }
+    #oList{
+        background:grey;
+        width:90%;
+        padding-left: 14px;
+        margin:0;
+        border:1px dashed white;
+    }
+    #h3{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-around;
+        margin: 0;
+        border: 1px dashed white;
+        width: 96%;
+    }
+  
+    #pushtoright{
+display:flex;
 
+justify-content: flex-end;
+    }
+p{flex-direction: row;
+flex-wrap: wrap;
+    display: inline;
+}
     
 .btn {
   --c: #fff;
@@ -83,15 +121,52 @@
   cursor: pointer;
   padding: .1em .3em;
 }
+#push-right{
+    margin-left: auto;
+}
+#totalamount{
+    display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        margin: 0;
+        border: 1px dashed white;
+        width:auto;
+        margin-left: 3px;
+}
 </style>
 <body>
     <!-- <input type="text" placeholder="Product"id="inputDes"> -->
     <div class="item-align">
-        <h1>Total Amount</h1>
-    <h3 id="total"></h3>
+  
+    <input placeholder="Product Name" type="text" id="input1" autocomplete="off">
     <input placeholder="Amount" type="text" id="input" autocomplete="off">
     <button id="add">+</button>
     </div>
+<div class="item-align" >
+    <h3 id="h3">Product name<span id="push-right">Amount</span></h3>
+    
+        <ul id="oList">
+            <li class="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+            <li id="inline"></li>
+        </ul>
+        <h1 id="totalamount">Total Amount = <span id="total"></span> </h1>
+        
+     
+</div>
 
 
     <div>
@@ -99,25 +174,53 @@
 
     </div>
     
-    
-    
     <script>
         let result=document.getElementById("total");
         let totalAmount=0;
         result.textContent=totalAmount;
+        
+        let counter=1;
+    function addNext(result){
+            for(let i=counter-1;i<counter;i++){
+        let item=document.getElementById("oList");
+                item=item.children[i];
+               item.innerText=result;
+              
+                
+            } 
+        counter++;
+        
+    }
+    function addAmountNext(Amount){
+        
+        let money=document.getElementById("pushtoright");      
+       money.innerText=Amount;
+       
+    }
         function addTotalAmount(){
             let element = document.getElementById("input");
     
             let amount=element.value; 
             let intAmount=parseInt(amount,10);
             totalAmount+=intAmount;
-           element.value=0;
+          //  addAmountNext(intAmount);
+            element.value="";
             result.innerText=totalAmount; 
+
         }
         
         let button=document.getElementById("add");
         
         button.addEventListener('click',addTotalAmount);
+        button.addEventListener('click', addListProducts=(e)=>{
+            let textProduct = document.getElementById("input1");
+            let result=textProduct.value;
+            addNext(result);
+           
+            
+
+        });
+
        
         let element = document.getElementById("input");
         element.addEventListener('keypress',(e)=>{
