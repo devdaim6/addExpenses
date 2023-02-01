@@ -161,3 +161,15 @@ display: flex;
     right:50%;
     left: 50%;
 }
+#footer{
+    text-align: center;
+    
+    color:#52f0f8;  
+}
+#cpy{
+    text-decoration: none;
+    color:#52f0f8;  
+ }
+
+#cpy:hover {
+    color: #fff;}
