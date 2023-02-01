@@ -6,17 +6,18 @@ result.textContent=totalAmount;
 
 let counter=1;
 //function for adding product name to the list
-function addNext(productAmount){
+function addNext(productName){
     for(let i=counter-1;i<counter;i++){
         let item=document.getElementById("oList");
-        item=item.children[i];
-           item.innerText=productAmount;
+        item=item.children[i]; 
+        item.innerText=productName;
           
             
         } 
+        
         counter++;
-    
-}
+    }
+
 let count=1
 // function for adding amount to the list
 function addAmountNext(result){
@@ -24,7 +25,7 @@ function addAmountNext(result){
     let item=document.getElementById("uList");
             item=item.children[i];
            item.innerText=result;
-          
+         
                } 
     count++;
     
@@ -38,12 +39,13 @@ function addTotalAmount(){
     totalAmount+=intAmount;
     addAmountNext(intAmount);
     element.value="";
+   
     result.innerText=totalAmount; 
     
 }
 //function to check the List Size
 function listEnded(){
-    if(count===16){
+    if(count===16 ||  counter===16){
         alert("Only 15 items are allowed");
     }   
 }
@@ -63,27 +65,35 @@ function listEnded(){
             
             alert("Enter the Valid Product Name & The Valid Amount ");
         }
+        else if(inputValue.value==NaN){
+            alert("Enter the correct Amount");
+        }
         else{      
-            button.addEventListener('click',addTotalAmount);    
-            
+            //getting the + button by id and adding the event onClick 
             button.addEventListener('click',listEnded);
-                   
-            button.addEventListener('click', addListProducts=(e)=>{
-               let textProduct = document.getElementById("input1");
-               let result=textProduct.value;
-               addNext(result);
-               
-               
-               
-            });
+            button.addEventListener('click',addTotalAmount);    
+            button.addEventListener('click',addProductList);
             
             
             
+            
+            
+        }
+        
     }
-}
+    button.addEventListener('click',checkInput);
 
-//getting the + button by id and adding the event onClick 
-button.addEventListener('click',checkInput);
+//Adding product name to the list
+function addProductList(){
+    let textProduct = document.getElementById("input1");
+     let result=textProduct.value;
+    addNext(result);
+    
+    
+    
+    
+ }
+
 //logic if the user presses Enter instead of pressing to the button
     let element = document.getElementById("input");
     element.addEventListener('keypress',(e)=>{
