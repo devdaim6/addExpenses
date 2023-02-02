@@ -44,13 +44,13 @@ h3,h1{
     border-color: white;
 }
 
-.item-align{
-    display :flex;
+.item-align {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
- justify-content: space-between;
- margin: 10px 60px 10px 10px;
-}
+    justify-content: space-between;
+    margin: 10px 30px 10px 10px;
+  }
 #oList{
     
  
@@ -172,4 +172,17 @@ display: flex;
  }
 
 #cpy:hover {
-    color: #fff;}
+    color: #fff;
+}
+#print {
+    background-image: -webkit-linear-gradient(red,yellow);
+    width: 19%;
+    border-radius: 17%;
+    height: 29px;
+  }
+    #print:hover{
+        background-image: -webkit-linear-gradient(yellow,red);
+    }
+    #add:hover{
+        background-image: -webkit-linear-gradient(red,yellow);
+    }

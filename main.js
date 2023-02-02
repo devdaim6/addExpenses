@@ -20,23 +20,16 @@ let button=document.getElementById("add");
         let string = /^[a-z]\s+$/;
         let inputValue = document.getElementById("input");
         let inputProduct = document.getElementById("input1");
-        if(inputProduct.value==="" || inputValue.value===null){
+        
+        if(isNaN(inputProduct.value) && isNaN(inputValue.value)){
             alert("Enter the Valid Product Name & The Valid Amount ");
-            return;
-        }
-
-        else if(inputProduct.value==="" && inputValue.textContent===""){
-            
-            alert("Enter the Valid Product Name & The Valid Amount");
-            return;
         }
         else if(!(inputProduct.value.match(string)) && !(inputValue.value.match(numbers))){
 
-            alert("Enter the Valid Product Name & The Valid Amount");
-            return;
-        }
-       
-               else{   
+            alert("Enter the Valid Format");
+
+        }  
+       else{   
             //getting the + button by id and adding the event onClick 
             button.addEventListener('click',listEnded);
             button.addEventListener('click',addTotalAmount);    
@@ -111,3 +104,8 @@ function addTotalAmount(){
         }
     });
     
+    function printPageArea(){
+
+     window.print();
+
+    }
