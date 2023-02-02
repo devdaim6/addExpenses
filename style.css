@@ -179,6 +179,8 @@ display: flex;
     width: 19%;
     border-radius: 17%;
     height: 29px;
+    position: relative;
+    bottom:14px;
   }
     #print:hover{
         background-image: -webkit-linear-gradient(yellow,red);
